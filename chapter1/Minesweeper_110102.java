@@ -80,9 +80,9 @@ public class Minesweeper_110102 {
             }
 
             char[][] inputArr = new char[m][n];
-            for (int i=0; i<m; i++) {
+            for (int i = 0; i < m; i++) {
                 String nextLine = sc.next();
-                for (int j=0; j<nextLine.length(); j++) {
+                for (int j = 0; j < nextLine.length(); j++) {
                     inputArr[i][j] = nextLine.charAt(j);
                 }
             }
@@ -92,8 +92,8 @@ public class Minesweeper_110102 {
 
             int[][] result = getResult(inputArr, m, n);
             System.out.println("Field #" + filedCount++ + ":");
-            for (int r=0; r<result.length; r++) {
-                for (int c=0; c<result[0].length; c++) {
+            for (int r = 0; r < result.length; r++) {
+                for (int c = 0; c < result[0].length; c++) {
                     if (result[r][c] == -1)
                         System.out.print("*");
                     else
@@ -109,8 +109,8 @@ public class Minesweeper_110102 {
     public static int[][] getResult(char[][] input, int rowLen, int colLen) {
         int[][] res = new int[rowLen][colLen];
 
-        for (int i=0; i<rowLen; i++) {
-            for (int j=0; j<colLen; j++) {
+        for (int i = 0; i < rowLen; i++) {
+            for (int j = 0; j < colLen; j++) {
                 if (input[i][j] == '*') {
                     res[i][j] = -1;
                 } else {
@@ -124,14 +124,14 @@ public class Minesweeper_110102 {
 
     public static int getCount(char[][] input, int i, int j, int rowLen, int colLen) {
         int count = 0;
-        if (i > 0 && j > 0 && input[i-1][j-1] == '*') count++;
-        if (i>0 && input[i-1][j] == '*') count++;
-        if (i>0 && j+1 < colLen && input[i-1][j+1] == '*') count++;
-        if (j > 0 && input[i][j-1] == '*') count++;
-        if (j+1 < colLen && input[i][j+1] == '*') count++;
-        if (i+1 < rowLen && j > 0 && input[i+1][j-1] == '*') count++;
-        if (i+1 < rowLen && input[i+1][j] == '*') count++;
-        if (i+1 < rowLen && j+1 < colLen && input[i+1][j+1] == '*') count++;
+        if (i > 0 && j > 0 && input[i - 1][j - 1] == '*') count++;
+        if (i > 0 && input[i - 1][j] == '*') count++;
+        if (i > 0 && j + 1 < colLen && input[i - 1][j + 1] == '*') count++;
+        if (j > 0 && input[i][j - 1] == '*') count++;
+        if (j + 1 < colLen && input[i][j + 1] == '*') count++;
+        if (i + 1 < rowLen && j > 0 && input[i + 1][j - 1] == '*') count++;
+        if (i + 1 < rowLen && input[i + 1][j] == '*') count++;
+        if (i + 1 < rowLen && j + 1 < colLen && input[i + 1][j + 1] == '*') count++;
 
         return count;
     }
